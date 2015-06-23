@@ -9,19 +9,16 @@
 </head>
 <body>
 <div class="container">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">Evaluators</a>
       </div>
       <div class="navbar-right">
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search...">
-          </div>
-        </form>
-        <p class="navbar-text"><a href="/admin" class="navbar-link">Agents</a></p>
-        <p class="navbar-text"><a href="/logout" class="navbar-link">Logout</a></p>
+        <ul class="nav navbar-nav">
+          <li><a href="/agents" class="navbar-link"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Agents</a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+        </ul>
       </div>
     </div>
   </nav>

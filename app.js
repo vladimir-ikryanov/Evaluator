@@ -8,7 +8,8 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var passportStrategyGoogle = require('passport-google-oauth').OAuth2Strategy;
-var User = require('./user.js');
+var User = require('./model/user.js');
+var Agent = require('./model/agent.js');
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/authentication');
@@ -45,24 +46,23 @@ passport.use(new passportStrategyGoogle({
         callbackURL: "http://localhost:3000/auth/google/callback"
     },
     function (accessToken, refreshToken, profile, done) {
-        console.log(profile);
-        User.findOne({oauthID: profile.id}, function (err, user) {
-            if (err) {
-                console.error(err);
-            }
-            if (!err && user != null) {
-                return done(null, user);
-            }
-            var user = new User({
-                oauthID: profile.id,
-                name: profile.displayName
-            });
-            user.save(function (err) {
-                if (err) {
-                    console.error(err);
+        profile.emails.forEach(function (item) {
+            Agent.findOne({email: item.value}, function (err, email) {
+                if (!err && email != null) {
+                    User.findOne({oauthID: profile.id}, function (err, user) {
+                        if (!err && user != null) {
+                            return done(null, user);
+                        }
+                        User.create({oauthID: profile.id, name: profile.displayName}, function (err, user) {
+                            if (err) {
+                                console.error(err);
+                            } else {
+                                done(null, user);
+                            }
+                        });
+                    });
                 } else {
-                    console.log("Saving a new user...");
-                    done(null, user);
+                    done(null, false);
                 }
             });
         });
@@ -72,6 +72,9 @@ passport.use(new passportStrategyGoogle({
 app.get('/', routes.authenticated, routes.index);
 app.get('/login', routes.login);
 app.get('/logout', routes.logout);
+app.get('/agents', routes.authenticated, routes.agents);
+app.post('/agents/new', routes.authenticated, routes.newAgent);
+app.post('/agents/delete', routes.authenticated, routes.deleteAgent);
 
 app.get('/auth/google', passport.authenticate('google', {
     scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
