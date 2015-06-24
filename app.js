@@ -48,6 +48,7 @@ passport.use(new passportStrategyGoogle({
         callbackURL: "http://localhost:3000/auth/google/callback"
     },
     function (accessToken, refreshToken, profile, done) {
+        // Check if profile's email match the one from registered emails
         var isProfileEmailRegistered = false;
         profile.emails.forEach(function (item) {
             // item.value => email

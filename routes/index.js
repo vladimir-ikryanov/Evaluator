@@ -9,11 +9,7 @@ exports.authenticated = function (req, res, next) {
 
 exports.index = function (req, res) {
     User.findById(req.session.passport.user, function (err, user) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render('evaluators', {user: user});
-        }
+        res.render('evaluators', {user: user});
     });
 };
 
