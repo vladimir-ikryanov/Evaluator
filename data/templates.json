@@ -1,0 +1,71 @@
+{
+  "emailTemplates": [
+    {
+      "id": 0,
+      "cc": "jxbrowser-evaluation@teamdev.com",
+      "subject": "Welcome to JxBrowser Evaluation!",
+      "body": "\u003cp\u003eHi{firstName},\u003c/p\u003e\u003cp\u003eMy name is Vladimir. I\u0027m a developer in JxBrowser Team.\u003c/p\u003e\u003cp\u003eI\u0027m just checking in to make sure that configuring your project with JxBrowser library went smoothly.\u003c/p\u003e\u003cp\u003eIf you need any help getting started or in case of any questions related to usage of JxBrowser in your application, just let me know. I will be happy to help.\u003c/p\u003e\u003cp\u003eI hope you will enjoy using JxBrowser!\u003c/p\u003e\u003cp\u003eAll the best,\u003c/p\u003e\u003ctable cellpadding\u003d\u00270\u0027 border\u003d\u00270\u0027\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;\u0027\u003e\u003cimg alt\u003d\u0027Vladimir Ikryanov\u0027 src\u003d\u0027http://www.teamdev.com/img/evaluate-email/vladimir-ikryanov.jpg\u0027 width\u003d\u002760\u0027/\u003e\u003c/a\u003e\u003c/th\u003e\u003ctd width\u003d\u002710\u0027\u003e\u0026nbsp;\u003c/td\u003e\u003ctd style\u003d\u0027line-height:1.4;\u0027\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;color:#000;\u0027\u003e\u003cstrong\u003eVladimir Ikryanov\u003c/strong\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eJxBrowser Team\u003c/span\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eTeamDev Ltd.\u003c/span\u003e\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    {
+      "id": 1,
+      "cc": "jxbrowser-evaluation@teamdev.com",
+      "subject": "How is your JxBrowser trial going?",
+      "body": "\u003cp\u003eHi{firstName},\u003c/p\u003e\u003cp\u003eIt’s been almost a week since you started JxBrowser trial. How’s it going so far?\u003c/p\u003e\u003cp\u003eIf you ever have a question, run into a snag, or just want to share an idea on how we could make JxBrowser better, be sure to let me know by replying to this email. I’m here to help!\u003c/p\u003e\u003cp\u003eAll the best,\u003c/p\u003e\u003ctable cellpadding\u003d\u00270\u0027 border\u003d\u00270\u0027\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;\u0027\u003e\u003cimg alt\u003d\u0027Vladimir Ikryanov\u0027 src\u003d\u0027http://www.teamdev.com/img/evaluate-email/vladimir-ikryanov.jpg\u0027 width\u003d\u002760\u0027/\u003e\u003c/a\u003e\u003c/th\u003e\u003ctd width\u003d\u002710\u0027\u003e\u0026nbsp;\u003c/td\u003e\u003ctd style\u003d\u0027line-height:1.4;\u0027\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;color:#000;\u0027\u003e\u003cstrong\u003eVladimir Ikryanov\u003c/strong\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eJxBrowser Team\u003c/span\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eTeamDev Ltd.\u003c/span\u003e\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    {
+      "id": 2,
+      "cc": "jxbrowser-evaluation@teamdev.com",
+      "subject": "Your JxBrowser Trial is Ending Soon",
+      "body": "\u003cp\u003eHi{firstName},\u003c/p\u003e\u003cp\u003eI hope your evaluation is going well.\u003c/p\u003e\u003cp\u003eI’m writing you to remind that your evaluation period ends in 10 days, after this you will need a Development License to continue using JxBrowser in your work.\u003c/p\u003e\u003cp\u003eYou can purchase the JxBrowser Development License online using the following \u003ca href\u003d\u0027https://secure.avangate.com/order/checkout.php?PRODS\u003d1173723\u0026QTY\u003d1\u0026CART\u003d1\u0026CARD\u003d1\u0026CLEAN_CART\u003dALL\u0026_ga\u003d1.69915216.1311684333.1432127743\u0027\u003edirect link\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eFeel free to contact me or our \u003ca href\u003d\u0027mailto:sales@teamdev.com\u0027\u003eSales\u003c/a\u003e team if you have any questions related to purchasing the license. We’re here to help.\u003c/p\u003e\u003cp\u003eAll the best,\u003c/p\u003e\u003ctable cellpadding\u003d\u00270\u0027 border\u003d\u00270\u0027\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;\u0027\u003e\u003cimg alt\u003d\u0027Vladimir Ikryanov\u0027 src\u003d\u0027http://www.teamdev.com/img/evaluate-email/vladimir-ikryanov.jpg\u0027 width\u003d\u002760\u0027/\u003e\u003c/a\u003e\u003c/th\u003e\u003ctd width\u003d\u002710\u0027\u003e\u0026nbsp;\u003c/td\u003e\u003ctd style\u003d\u0027line-height:1.4;\u0027\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;color:#000;\u0027\u003e\u003cstrong\u003eVladimir Ikryanov\u003c/strong\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eJxBrowser Team\u003c/span\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eTeamDev Ltd.\u003c/span\u003e\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    {
+      "id": 3,
+      "cc": "jxbrowser-evaluation@teamdev.com",
+      "subject": "Your JxBrowser Trial is Almost Expired",
+      "body": "\u003cp\u003eHi{firstName},\u003c/p\u003e\u003cp\u003eThe evaluation license of your JxBrowser is expiring tomorrow, and I hope you had a chance to test the library’s functionality.\u003c/p\u003e\u003cp\u003eIn order to purchase the Development License please use the following \u003ca href\u003d\u0027https://secure.avangate.com/order/checkout.php?PRODS\u003d1173723\u0026QTY\u003d1\u0026CART\u003d1\u0026CARD\u003d1\u0026CLEAN_CART\u003dALL\u0026_ga\u003d1.69915216.1311684333.1432127743\u0027\u003elink\u003c/a\u003e.\u003cbr\u003eIf another \u003ca href\u003d\u0027http://www.teamdev.com/jxbrowser#licensing-pricing\u0027\u003etype of licence\u003c/a\u003e is required for your project, or in case you have licensing questions or need purchasing assistance, please e-mail me or our Sales team at \u003ca href\u003d\u0027mailto:sales@teamdev.com\u0027\u003esales@teamdev.com\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eIf you need more time to complete your evaluation, please let me know.\u003c/p\u003e\u003cp\u003eAll the best,\u003c/p\u003e\u003ctable cellpadding\u003d\u00270\u0027 border\u003d\u00270\u0027\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;\u0027\u003e\u003cimg alt\u003d\u0027Vladimir Ikryanov\u0027 src\u003d\u0027http://www.teamdev.com/img/evaluate-email/vladimir-ikryanov.jpg\u0027 width\u003d\u002760\u0027/\u003e\u003c/a\u003e\u003c/th\u003e\u003ctd width\u003d\u002710\u0027\u003e\u0026nbsp;\u003c/td\u003e\u003ctd style\u003d\u0027line-height:1.4;\u0027\u003e\u003ca href\u003d\u0027https://plus.google.com/u/0/113918825515210809679/posts\u0027 style\u003d\u0027text-decoration:none;color:#000;\u0027\u003e\u003cstrong\u003eVladimir Ikryanov\u003c/strong\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eJxBrowser Team\u003c/span\u003e\u003cbr\u003e\u003cspan style\u003d\u0027color:#82898B;\u0027\u003eTeamDev Ltd.\u003c/span\u003e\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    {
+      "id": 4,
+      "cc": "jxbrowser-evaluation@teamdev.com",
+      "subject": "Feedback Subject",
+      "body": "Hello{firstName}"
+    }
+  ],
+  "pipelineTemplates": [
+    {
+      "title": "JxBrowser 30-days Evaluation",
+      "phases": [
+        {
+          "emailTemplateId": 0,
+          "offsetInDays": 0,
+          "enabled": false,
+          "completed": false
+        },
+        {
+          "emailTemplateId": 1,
+          "offsetInDays": 0,
+          "enabled": false,
+          "completed": false
+        },
+        {
+          "emailTemplateId": 2,
+          "offsetInDays": 0,
+          "enabled": false,
+          "completed": false
+        },
+        {
+          "emailTemplateId": 3,
+          "offsetInDays": 0,
+          "enabled": false,
+          "completed": false
+        },
+        {
+          "emailTemplateId": 4,
+          "offsetInDays": 0,
+          "enabled": false,
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

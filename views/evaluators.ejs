@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="EvaluatorsApp">
 <head>
+  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
+  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
+  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Evaluator Login</title>
 
-  <link href="/stylesheets/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.min.js"></script>
+
+  <link href="/stylesheets/style.css" rel="stylesheet">
+  <script src="/javascripts/controllers.js"></script>
 </head>
-<body>
+<body ng-controller="EvaluatorsCtrl">
 <div class="container">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Evaluators</a>
+        <a class="navbar-brand" href="#">Evaluators</a>
       </div>
+      <ul class="nav navbar-nav">
+        <li><a href="#"><span class="glyphicon glyphicon-plus"></span> New Evaluator</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pipelines <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">All</a></li>
+            <li class="dropdown-header">JxBrowser</li>
+            <li><a href="#">30-days Evaluation</a></li>
+            <li><a href="#">Extended Evaluation</a></li>
+            <li class="dropdown-header">DotNetBrowser</li>
+            <li><a href="#">30-days Evaluation</a></li>
+          </ul>
+        </li>
+      </ul>
       <div class="navbar-right">
         <ul class="nav navbar-nav">
           <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
@@ -26,6 +45,30 @@
       </div>
     </div>
   </nav>
+
+  <div class="page-header">
+    <h1>JxBrowser <small>30-days Evaluations</small></h1>
+  </div>
+
+  <ul class="eval">
+    <!--<li ng-repeat="evaluator in evaluators">-->
+      <!--<p>{{evaluator.name}}, {{evaluator.value}}</p>-->
+    <!--</li>-->
+    <li>
+      <p class="eval-title">vladimir.ikryanov@teamdev.com</p>
+      <p class="eval-notes">This customer wants to use IBM JDK/JRE which we don't support right now. Feature request <a href="#">#332</a>.</p>
+      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 20 Jun, 20:30 &nbsp; <span class="glyphicon glyphicon-user"></span> Vladimir Ikryanov</p>
+    </li>
+    <li>
+      <p class="eval-title">vladimir.ikryanov@gmail.com</p>
+      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 22 Dec, 10:30 &nbsp;</p>
+    </li>
+    <li>
+      <p class="eval-title">ben@clubcastlive.com</p>
+      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 22 Dec, 10:30 &nbsp; <span class="glyphicon glyphicon-user"></span> Ben Davenport</p>
+    </li>
+  </ul>
+
 </div>
 </body>
 </html>
