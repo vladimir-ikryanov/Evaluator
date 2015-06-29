@@ -38,7 +38,8 @@
     <li ng-repeat="evaluator in evaluators">
       <p class="eval-title">{{evaluator.email}}</p>
       <p class="eval-notes">{{evaluator.notes}}</p>
-      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> {{evaluator.dateTime | date:'dd MMM HH:mm'}} &nbsp; <span class="glyphicon glyphicon-user"></span> {{evaluator.firstName}}</p>
+      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> {{evaluator.dateTime | date:'dd MMM HH:mm'}} &nbsp; <span class="glyphicon glyphicon-user"></span> {{evaluator.firstName}} &nbsp;
+        <a href="#" ng-click="deleteEvaluator(evaluator)">Delete</a></p>
 
       <div class="pipeline-container">
         <ul class="pipeline">
@@ -133,7 +134,7 @@
               aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">New Evaluator</h4>
       </div>
-      <form role="form" ng-controller="NewEvaluatorFormCtrl" ng-submit="submitForm()">
+      <form role="form" ng-submit="submitForm()">
         <div class="modal-body">
           <div class="form-group">
             <label for="email">Email:</label>
@@ -148,6 +149,11 @@
               <label for="registrationDate">Registration Date:</label>
               <input type="datetime-local" class="form-control" id="registrationDate" ng-required="true" ng-model="formData.dateTime">
             </div>
+          </div>
+          <div class="form-group">
+            <label for="pipeline">Pipeline:</label>
+            <select class="form-control" id="pipeline" ng-model="formData.pipelineId" ng-options="pipeline._id as pipeline.title for pipeline in pipelines">
+            </select>
           </div>
           <div class="form-group">
             <label for="notes">Notes:</label>

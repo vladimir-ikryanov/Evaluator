@@ -76,6 +76,7 @@ app.get('/login', routes.login);
 app.get('/login/error', routes.loginFailed);
 app.get('/logout', routes.logout);
 app.post('/evaluator/new', routes.newEvaluator);
+app.post('/evaluator/delete', routes.deleteEvaluator);
 app.get('/data', routes.data);
 app.get('/auth/google', passport.authenticate('google', {
   scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'

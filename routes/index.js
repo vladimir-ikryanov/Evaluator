@@ -28,19 +28,40 @@ exports.logout = function (req, res) {
 
 exports.newEvaluator = function (req, res) {
   // Parse Data
-  var data = req.body;
-  // Create a new Evaluator in DataBase
-  var response = {
-    success: true
-  };
-  res.send(response);
+  var email = req.body.email;
+  var firstName = req.body.firstName;
+  var notes = req.body.notes;
+  var dateTime = req.body.dateTime;
+
+  // TODO: check if email is already registered
+  new dataStorage.Evaluator({
+    email: email,
+    firstName: firstName,
+    notes: notes,
+    dateTime: dateTime
+  }).save(function (err, evaluator) {
+      var response = {
+        success: !err,
+        evaluator: evaluator
+      };
+      res.send(response);
+  });
+};
+
+exports.deleteEvaluator = function (req, res) {
+  dataStorage.Evaluator.remove({_id: req.body.evaluator._id}, function(err) {
+    var response = {
+      success: !err
+    };
+    res.send(response);
+  });
 };
 
 exports.data = function (req, res) {
   var data = {};
   dataStorage.Pipeline.find({}, function (err, pipelines) {
     data.pipelines = pipelines;
-    dataStorage.PipelinePhase.find({}, function(err, pipelinePhases) {
+    dataStorage.PipelinePhase.find({}, function (err, pipelinePhases) {
       data.pipelinePhases = pipelinePhases;
       dataStorage.Evaluator.find({}, function (err, evaluators) {
         data.evaluators = evaluators;
