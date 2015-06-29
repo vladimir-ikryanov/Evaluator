@@ -3,7 +3,7 @@ var evaluatorsApp = angular.module('EvaluatorsApp', ['ngRoute']);
 evaluatorsApp.controller('EvaluatorsCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.formData = {};
 
-  $http.get('data').success(function (data, status, headers, config) {
+  $http.get('data').success(function (data) {
     $scope.pipelines = data.pipelines;
     $scope.evaluators = data.evaluators;
     $scope.pipelinePhases = data.pipelinePhases;
@@ -12,7 +12,7 @@ evaluatorsApp.controller('EvaluatorsCtrl', ['$scope', '$http', function ($scope,
     resetFormData($scope);
   });
 
-  $scope.submitForm = function () {
+  $scope.newEvaluator = function () {
     $http.post('/evaluator/new', $scope.formData).success(function (data) {
       if (data.success) {
         $scope.evaluators.unshift(data.evaluator);
@@ -31,10 +31,11 @@ evaluatorsApp.controller('EvaluatorsCtrl', ['$scope', '$http', function ($scope,
     $http.post('/evaluator/delete', {evaluator: evaluator}).success(function(data) {
       if (data.success) {
         var index = $scope.evaluators.indexOf(evaluator);
-        console.log(index);
         if (index > -1) {
           $scope.evaluators.splice(index, 1);
         }
+      } else {
+        console.error('Failed to delete Evaluator');
       }
     });
   };
