@@ -33,27 +33,46 @@ exports.newEvaluator = function (req, res) {
   var notes = req.body.notes;
   var dateTime = req.body.dateTime;
 
-  // TODO: check if email is already registered
-  new dataStorage.Evaluator({
-    email: email,
-    firstName: firstName,
-    notes: notes,
-    dateTime: dateTime
-  }).save(function (err, evaluator) {
-      var response = {
-        success: !err,
-        evaluator: evaluator
-      };
-      res.send(response);
+  dataStorage.Evaluator.find({email: email}, function(err, evaluators) {
+    if (typeof evaluators !== 'undefined' && evaluators.length > 0) {
+      res.send({
+        success: false,
+        errorMessage: 'Evaluator with the ' + email + ' email is already registered.'
+      });
+    } else {
+      new dataStorage.Evaluator({
+        email: email,
+        firstName: firstName,
+        notes: notes,
+        dateTime: dateTime
+      }).save(function (err, evaluator) {
+          if (err) {
+            res.send({
+              success: false,
+              errorMessage: 'Failed to create a new Evaluator'
+            });
+          } else {
+            var response = {
+              success: true,
+              evaluator: evaluator
+            };
+            res.send(response);
+          }
+        });
+    }
   });
 };
 
 exports.deleteEvaluator = function (req, res) {
-  dataStorage.Evaluator.remove({_id: req.body.evaluator._id}, function(err) {
-    var response = {
-      success: !err
-    };
-    res.send(response);
+  var evaluatorId = req.body.evaluator._id;
+  dataStorage.Evaluator.remove({_id: evaluatorId}, function(err) {
+    if (err) {
+      res.send({success: false});
+    } else {
+      dataStorage.EvaluatorPipelinePhase.remove({evaluatorId: evaluatorId}, function(err) {
+        res.send({success: !err});
+      });
+    }
   });
 };
 

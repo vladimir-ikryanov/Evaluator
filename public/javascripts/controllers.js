@@ -17,9 +17,11 @@ evaluatorsApp.controller('EvaluatorsCtrl', ['$scope', '$http', function ($scope,
       if (data.success) {
         $scope.evaluators.unshift(data.evaluator);
         $('#newEvaluatorModal').modal('hide');
+        $('#newEvaluatorErrorMessage').hide();
         resetFormData($scope);
       } else {
-        console.error('Failed to create a new Evaluator');
+        $('#newEvaluatorErrorMessage').show();
+        $scope.errorMessage = data.errorMessage;
       }
     });
   };
