@@ -1,4 +1,4 @@
-var User = require('../model/user.js');
+var dataStorage = require('../model/data.js');
 
 exports.authenticated = function (req, res, next) {
   if (req.isAuthenticated()) {
@@ -8,7 +8,7 @@ exports.authenticated = function (req, res, next) {
 };
 
 exports.index = function (req, res) {
-  User.findById(req.session.passport.user, function (err, user) {
+  dataStorage.User.findById(req.session.passport.user, function (err, user) {
     res.render('evaluators', {user: user});
   });
 };
@@ -26,16 +26,29 @@ exports.logout = function (req, res) {
   res.redirect('/');
 };
 
-exports.evaluators = function (req, res) {
-  var evaluators = [
-    {
-      "name": "1",
-      "value": "2"
-    },
-    {
-      "name": "1",
-      "value": "2"
-    }
-  ];
-  res.json(evaluators);
+exports.newEvaluator = function (req, res) {
+  // Parse Data
+  var data = req.body;
+  // Create a new Evaluator in DataBase
+  var response = {
+    success: true
+  };
+  res.send(response);
+};
+
+exports.data = function (req, res) {
+  var data = {};
+  dataStorage.Pipeline.find({}, function (err, pipelines) {
+    data.pipelines = pipelines;
+    dataStorage.PipelinePhase.find({}, function(err, pipelinePhases) {
+      data.pipelinePhases = pipelinePhases;
+      dataStorage.Evaluator.find({}, function (err, evaluators) {
+        data.evaluators = evaluators;
+        dataStorage.EvaluatorPipelinePhase.find({}, function (err, evaluatorPipelinePhases) {
+          data.evaluatorPipelinePhases = evaluatorPipelinePhases;
+          res.json(data);
+        });
+      });
+    });
+  });
 };

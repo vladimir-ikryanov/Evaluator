@@ -9,10 +9,9 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var passportStrategyGoogle = require('passport-google-oauth').OAuth2Strategy;
-var User = require('./model/user.js');
+var dataStorage = require('./model/data.js');
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/authentication');
+mongoose.connect('mongodb://localhost/evaluator');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +30,7 @@ passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
+  dataStorage.User.findById(id, function (err, user) {
     if (err) {
       done(err, null);
     } else {
@@ -54,11 +53,11 @@ passport.use(new passportStrategyGoogle({
       }
     });
     if (isProfileEmailRegistered) {
-      User.findOne({oauthID: profile.id}, function (err, user) {
+      dataStorage.User.findOne({oauthID: profile.id}, function (err, user) {
         if (!err && user != null) {
           return done(null, user);
         }
-        User.create({oauthID: profile.id, name: profile.displayName}, function (err, user) {
+        dataStorage.User.create({oauthID: profile.id, name: profile.displayName}, function (err, user) {
           if (err) {
             console.error(err);
           } else {
@@ -76,7 +75,8 @@ app.get('/', routes.authenticated, routes.index);
 app.get('/login', routes.login);
 app.get('/login/error', routes.loginFailed);
 app.get('/logout', routes.logout);
-app.get('/evaluators', routes.evaluators);
+app.post('/evaluator/new', routes.newEvaluator);
+app.get('/data', routes.data);
 app.get('/auth/google', passport.authenticate('google', {
   scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
 }));

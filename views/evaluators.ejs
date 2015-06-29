@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="EvaluatorsApp">
 <head>
-  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
-  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
-  <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Evaluator Login</title>
@@ -25,18 +22,9 @@
         <a class="navbar-brand" href="#">Evaluators</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-plus"></span> New Evaluator</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pipelines <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">All</a></li>
-            <li class="dropdown-header">JxBrowser</li>
-            <li><a href="#">30-days Evaluation</a></li>
-            <li><a href="#">Extended Evaluation</a></li>
-            <li class="dropdown-header">DotNetBrowser</li>
-            <li><a href="#">30-days Evaluation</a></li>
-          </ul>
-        </li>
+        <!-- TODO: Implement New Evaluator -->
+        <li><a href="#" data-toggle="modal" data-target="#newEvaluatorModal"><span
+                class="glyphicon glyphicon-plus"></span> New Evaluator</a></li>
       </ul>
       <div class="navbar-right">
         <ul class="nav navbar-nav">
@@ -46,29 +34,134 @@
     </div>
   </nav>
 
-  <div class="page-header">
-    <h1>JxBrowser <small>30-days Evaluations</small></h1>
-  </div>
-
   <ul class="eval">
-    <!--<li ng-repeat="evaluator in evaluators">-->
-      <!--<p>{{evaluator.name}}, {{evaluator.value}}</p>-->
-    <!--</li>-->
-    <li>
-      <p class="eval-title">vladimir.ikryanov@teamdev.com</p>
-      <p class="eval-notes">This customer wants to use IBM JDK/JRE which we don't support right now. Feature request <a href="#">#332</a>.</p>
-      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 20 Jun, 20:30 &nbsp; <span class="glyphicon glyphicon-user"></span> Vladimir Ikryanov</p>
-    </li>
-    <li>
-      <p class="eval-title">vladimir.ikryanov@gmail.com</p>
-      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 22 Dec, 10:30 &nbsp;</p>
-    </li>
-    <li>
-      <p class="eval-title">ben@clubcastlive.com</p>
-      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> 22 Dec, 10:30 &nbsp; <span class="glyphicon glyphicon-user"></span> Ben Davenport</p>
+    <li ng-repeat="evaluator in evaluators">
+      <p class="eval-title">{{evaluator.email}}</p>
+      <p class="eval-notes">{{evaluator.notes}}</p>
+      <p class="eval-details"><span class="glyphicon glyphicon-time"></span> {{evaluator.dateTime | date:'dd MMM HH:mm'}} &nbsp; <span class="glyphicon glyphicon-user"></span> {{evaluator.firstName}}</p>
+
+      <div class="pipeline-container">
+        <ul class="pipeline">
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="phase"><span class="glyphicon glyphicon-map-marker"></span></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="phase"><span class="glyphicon glyphicon-map-marker"></span></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part week second">
+            <div class="date">12 Jul</div>
+          </li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part week second">
+            <div class="date">18 Jul</div>
+          </li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part week second">
+            <div class="date">25 Jul</div>
+          </li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="phase"><a href="#"><span class="glyphicon glyphicon-map-marker"></span></a></li>
+          <li class="day-part"></li>
+          <li class="day-part week second">
+            <div class="date">18 Aug</div>
+          </li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part week second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="phase"><a href="#"><span class="glyphicon glyphicon-map-marker"></span></a></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part second"></li>
+          <li class="day-part"></li>
+          <li class="day-part week second"></li>
+        </ul>
+      </div>
     </li>
   </ul>
-
 </div>
+
+<!-- New Evaluator Modal -->
+<div class="modal fade" id="newEvaluatorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Evaluator</h4>
+      </div>
+      <form role="form" ng-controller="NewEvaluatorFormCtrl" ng-submit="submitForm()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Enter email" class="form-control" id="email" ng-required="true" ng-model="formData.email">
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="firstName">First Name:</label>
+              <input type="text" placeholder="First Name" class="form-control" id="firstName" ng-model="formData.firstName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="registrationDate">Registration Date:</label>
+              <input type="datetime-local" class="form-control" id="registrationDate" ng-required="true" ng-model="formData.dateTime">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes:</label>
+            <textarea placeholder="Enter some notes..." class="form-control" id="notes" ng-model="formData.notes"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">New Evaluator</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

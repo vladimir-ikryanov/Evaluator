@@ -1,15 +1,17 @@
 body {
-  padding-top: 100px;
+  padding-top: 50px;
+}
+
+.login {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 ul.eval {
   list-style-type: none;
   padding: 0;
   margin: 30px 0 0 0;
-}
-
-.eval li {
-  padding-bottom: 30px;
 }
 
 p {
@@ -30,11 +32,55 @@ p {
 }
 
 .eval-notes {
-  padding-top: 5px;
 }
 
 .eval-details {
   font-size: 12px;
   color: darkgray;
   padding-top: 5px;
+}
+
+.pipeline-container {
+  padding-bottom: 60px;
+}
+
+.pipeline {
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.day-part {
+  float: left;
+  width: 10px;
+  height: 5px;
+  margin-top: 15px;
+  border-bottom: solid 1px darkgray;
+}
+
+.second {
+  border-left: solid 1px darkgray;
+}
+
+.week {
+  height: 10px;
+  margin-top: 10px;
+}
+
+.date {
+  position: absolute;
+  font-size: 10px;
+  padding-top: 15px;
+  margin-left: -20px;
+  color: lightgray;
+  width: 40px;
+  text-align: center;
+}
+
+.phase {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border-bottom: solid 1px darkgray;
+  font-size: 17px;
 }
