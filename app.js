@@ -9,7 +9,7 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var passportStrategyGoogle = require('passport-google-oauth').OAuth2Strategy;
-var dataStorage = require('./model/data.js');
+var dataStorage = require('./lib/data.js');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/evaluator');
 

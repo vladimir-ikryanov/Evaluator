@@ -1,4 +1,4 @@
-var dataStorage = require('../model/data.js');
+var dataStorage = require('../lib/data.js');
 
 exports.authenticated = function (req, res, next) {
   if (req.isAuthenticated()) {
@@ -27,7 +27,6 @@ exports.logout = function (req, res) {
 };
 
 exports.newEvaluator = function (req, res) {
-  // Parse Data
   var email = req.body.email;
   var firstName = req.body.firstName;
   var notes = req.body.notes;
@@ -40,25 +39,13 @@ exports.newEvaluator = function (req, res) {
         errorMessage: 'Evaluator with the ' + email + ' email is already registered.'
       });
     } else {
-      new dataStorage.Evaluator({
-        email: email,
-        firstName: firstName,
-        notes: notes,
-        dateTime: dateTime
-      }).save(function (err, evaluator) {
-          if (err) {
-            res.send({
-              success: false,
-              errorMessage: 'Failed to create a new Evaluator'
-            });
-          } else {
-            var response = {
-              success: true,
-              evaluator: evaluator
-            };
-            res.send(response);
-          }
+      dataStorage.CreateEvaluator(email, firstName, notes, dateTime, function (err, evaluator) {
+        res.send({
+          success: !err,
+          errorMessage: 'Failed to create a new Evaluator',
+          evaluator: evaluator
         });
+      });
     }
   });
 };
